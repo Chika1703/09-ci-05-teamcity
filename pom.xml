@@ -5,6 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.id09Ci05Teamcity</groupId>
     <artifactId>09-ci-05-teamcity</artifactId>
+    <packaging>jar</packaging>
     <version>1.0.0-SNAPSHOT</version>
 
     <repositories>
