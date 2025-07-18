@@ -11,11 +11,11 @@
     <repositories>
         <repository>
             <id>nexus-releases</id>
-            <url>http://5.129.192.8:8081/repository/maven-releases/</url>
+            <url>http://5.129.192.8:8081/repository/maven-releases</url>
         </repository>
         <repository>
             <id>nexus-snapshots</id>
-            <url>http://5.129.192.8:8081/repository/maven-snapshots/</url>
+            <url>http://5.129.192.8:8081/repository/maven-snapshots</url>
         </repository>
     </repositories>
 
@@ -23,12 +23,12 @@
         <repository>
             <id>nexus-releases</id>
             <name>Releases</name>
-            <url>http://5.129.192.8:8081/repository/maven-releases/</url>
+            <url>http://5.129.192.8:8081/repository/maven-releases</url>
         </repository>
         <snapshotRepository>
             <id>nexus-snapshots</id>
             <name>Snapshots</name>
-            <url>http://5.129.192.8:8081/repository/maven-snapshots/</url>
+            <url>http://5.129.192.8:8081/repository/maven-snapshots</url>
         </snapshotRepository>
     </distributionManagement>
 
