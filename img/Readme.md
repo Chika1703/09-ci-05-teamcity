@@ -42,32 +42,32 @@
 
 1. Сделал новый проект в teamcity на основе fork.
 2. Сделал autodetect конфигурации.
-![Inventory](C:\Users\dimak\OneDrive\Desktop\готовое дз\1.jpg)
+![Inventory](https://github.com/Chika1703/09-ci-05-teamcity/blob/main/img/1.jpg)
 3. Сохранил необходимые шаги, запустите первую сборку master.
 4. Поменяйте условия сборки: если сборка по ветке `master`, то должен происходит `mvn clean deploy`, иначе `mvn clean test`.
-![Inventory](C:\Users\dimak\OneDrive\Desktop\готовое дз\2.jpg)
+![Inventory](https://github.com/Chika1703/09-ci-05-teamcity/blob/main/img/2.jpg)
 5. Для deploy будет необходимо загрузить [settings.xml](./teamcity/settings.xml) в набор конфигураций maven у teamcity, предварительно записав туда креды для подключения к nexus.
 6. В pom.xml необходимо поменять ссылки на репозиторий и nexus.
 7. Запустите сборку по master, убедитесь, что всё прошло успешно и артефакт появился в nexus.
 8. Мигрируйте `build configuration` в репозиторий.
-![Inventory](C:\Users\dimak\OneDrive\Desktop\готовое дз\3.jpg)
-![Inventory](C:\Users\dimak\OneDrive\Desktop\готовое дз\4.jpg)
-![Inventory](C:\Users\dimak\OneDrive\Desktop\готовое дз\5.jpg)
+![Inventory](https://github.com/Chika1703/09-ci-05-teamcity/blob/main/img/3.jpg)
+![Inventory](https://github.com/Chika1703/09-ci-05-teamcity/blob/main/img/4.jpg)
+![Inventory](https://github.com/Chika1703/09-ci-05-teamcity/blob/main/img/5.jpg)
 9. Создайте отдельную ветку `feature/add_reply` в репозитории.
 10. Напишите новый метод для класса Welcomer: метод должен возвращать произвольную реплику, содержащую слово `hunter`.
 11. Дополните тест для нового метода на поиск слова `hunter` в новой реплике.
 12. Сделайте push всех изменений в новую ветку репозитория.
 13. Убедитесь, что сборка самостоятельно запустилась, тесты прошли успешно.
-![Inventory](C:\Users\dimak\OneDrive\Desktop\готовое дз\6.jpg)
-![Inventory](C:\Users\dimak\OneDrive\Desktop\готовое дз\7.jpg)
+![Inventory](https://github.com/Chika1703/09-ci-05-teamcity/blob/main/img/6.jpg)
+![Inventory](https://github.com/Chika1703/09-ci-05-teamcity/blob/main/img/7.jpg)
 14. Внесите изменения из произвольной ветки `feature/add_reply` в `master` через `Merge`.
-![Inventory](C:\Users\dimak\OneDrive\Desktop\готовое дз\8.jpg)
+![Inventory](https://github.com/Chika1703/09-ci-05-teamcity/blob/main/img/8.jpg)
 15. Убедитесь, что нет собранного артефакта в сборке по ветке `master`.
-![Inventory](C:\Users\dimak\OneDrive\Desktop\готовое дз\9.jpg)
-![Inventory](C:\Users\dimak\OneDrive\Desktop\готовое дз\10.jpg)
+![Inventory](https://github.com/Chika1703/09-ci-05-teamcity/blob/main/img/9.jpg)
+![Inventory](https://github.com/Chika1703/09-ci-05-teamcity/blob/main/img/10.jpg)
 16. Настройте конфигурацию так, чтобы она собирала `.jar` в артефакты сборки.
-![Inventory](C:\Users\dimak\OneDrive\Desktop\готовое дз\11.jpg)
+![Inventory](https://github.com/Chika1703/09-ci-05-teamcity/blob/main/img/11.jpg)
 17. Проведите повторную сборку мастера, убедитесь, что сбора прошла успешно и артефакты собраны.
 18. Проверьте, что конфигурация в репозитории содержит все настройки конфигурации из teamcity.
-![Inventory](C:\Users\dimak\OneDrive\Desktop\готовое дз\12.jpg)
-![Inventory](C:\Users\dimak\OneDrive\Desktop\готовое дз\13.jpg)
+![Inventory](https://github.com/Chika1703/09-ci-05-teamcity/blob/main/img/12.jpg)
+![Inventory](https://github.com/Chika1703/09-ci-05-teamcity/blob/main/img/13.jpg)
