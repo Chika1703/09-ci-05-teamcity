@@ -4,11 +4,11 @@
   <param name="agentCleanFilesPolicy" value="ALL_UNTRACKED" />
   <param name="agentCleanPolicy" value="ON_BRANCH_CHANGE" />
   <param name="authMethod" value="PASSWORD" />
-  <param name="branch" value="refs/heads/main" />
+  <param name="branch" value="main" />
   <param name="ignoreKnownHosts" value="true" />
   <param name="secure:password" value="credentialsJSON:515589f6-e84c-4777-bc83-686c8313219e" />
   <param name="submoduleCheckout" value="CHECKOUT" />
-  <param name="teamcity:branchSpec" value="refs/heads/*" />
+  <param name="teamcity:branchSpec" value="*" />
   <param name="url" value="https://github.com/Chika1703/09-ci-05-teamcity.git" />
   <param name="useAlternates" value="AUTO" />
   <param name="username" value="Chika1703" />
