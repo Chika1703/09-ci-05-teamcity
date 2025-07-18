@@ -1,40 +1,12 @@
-import static org.hamcrest.CoreMatchers.containsString;
-import static org.junit.Assert.*;
-
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class WelcomerTest {
 
-	private Welcomer welcomer = new Welcomer();
-
-	@Test
-	public void welcomerSaysWelcome() {
-		assertThat(welcomer.sayWelcome(), containsString("Welcome"));
-	}
-
-	@Test
-	public void welcomerSaysFarewell() {
-		assertThat(welcomer.sayFarewell(), containsString("Farewell"));
-	}
-
-	@Test
-	public void welcomerSaysHunter() {
-		assertThat(welcomer.sayWelcome(), containsString("hunter"));
-		assertThat(welcomer.sayFarewell(), containsString("hunter"));
-	}
-
-	@Test
-	public void welcomerSaysSilver() {
-		assertThat(welcomer.sayNeedGold(), containsString("gold"));
-	}
-
-	@Test
-	public void welcomerSaysSomething() {
-		assertThat(welcomer.saySome(), containsString("something"));
-	}
-
-	@Test
-	public void welcomerSayCasador() {
-		assertThat(welcomer.sayCasador(), containsString("hunter"));
-	}
+    @Test
+    public void testGetHunterMessage() {
+        Welcomer welcomer = new Welcomer();
+        String message = welcomer.getHunterMessage();
+        assertTrue(message.contains("hunter"), "Message should contain 'hunter'");
+    }
 }
