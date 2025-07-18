@@ -12,6 +12,19 @@
         <param name="showChanges" value="false" />
       </parameters>
     </extension>
+    <extension id="PROJECT_EXT_3" type="IssueTracker">
+      <parameters>
+        <param name="authType" value="anonymous" />
+        <param name="name" value="Chika1703/09-ci-05-teamcity" />
+        <param name="pattern" value="#(\d+)" />
+        <param name="repository" value="https://github.com/Chika1703/09-ci-05-teamcity" />
+        <param name="secure:accessToken" value="" />
+        <param name="secure:password" value="" />
+        <param name="tokenId" value="" />
+        <param name="type" value="GithubIssues" />
+        <param name="username" value="" />
+      </parameters>
+    </extension>
   </project-extensions>
 </project>
 
