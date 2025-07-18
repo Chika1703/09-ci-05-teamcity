@@ -9,7 +9,10 @@
   <param name="secure:password" value="credentialsJSON:515589f6-e84c-4777-bc83-686c8313219e" />
   <param name="submoduleCheckout" value="CHECKOUT" />
   <param name="teamcity:branchSpec"><![CDATA[+:refs/heads/*
-+:refs/(tags/*)]]></param>
++:refs/(tags/*)
+*
+main
+feature/add_reply]]></param>
   <param name="url" value="https://github.com/Chika1703/09-ci-05-teamcity.git" />
   <param name="useAlternates" value="AUTO" />
   <param name="username" value="Chika1703" />
