@@ -1,0 +1,70 @@
+---
+- name: Install unzip
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install unzip package
+      ansible.builtin.apt:
+        name: unzip
+        state: present
+
+- name: Install TeamCity Agent
+  hosts: tc-agent
+  become: true
+  tasks:
+    - name: Install Java Runtime
+      apt:
+        name: openjdk-8-jre
+        state: present
+        update_cache: yes
+
+    - name: Wait for TeamCity port to open
+      ansible.builtin.wait_for:
+        host: "{{ hostvars['nexus-01'].ansible_host }}"
+        port: 8111
+        delay: 10
+        timeout: 300
+        state: started
+
+    - name: Ensure SSH connection is alive
+      ansible.builtin.wait_for_connection:
+        delay: 5
+        sleep: 5
+        timeout: 300
+
+    - name: Download TeamCity Agent ZIP with retries
+      ansible.builtin.get_url:
+        url: "http://{{ hostvars['nexus-01'].ansible_host }}:8111/update/buildAgentFull.zip"
+        dest: /tmp/teamcity-agent.zip
+        mode: '0644'
+      register: download_result
+      until: download_result is success
+      retries: 30
+      delay: 10
+
+    - name: Unpack agent
+      unarchive:
+        src: /tmp/teamcity-agent.zip
+        dest: /opt/
+        remote_src: yes
+
+    - name: Configure agent properties
+      ansible.builtin.lineinfile:
+        path: /opt/buildAgent/conf/buildAgent.properties
+        regexp: '^serverUrl='
+        line: "serverUrl=http://{{ hostvars['nexus-01'].ansible_host }}:8111"
+        create: yes
+
+    - name: copy buildAgent.properties in /opt/conf/
+      copy:
+        src: /opt/buildAgent/conf/buildAgent.properties
+        dest: /opt/conf/buildAgent.properties
+        remote_src: yes
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Start agent
+      shell: /opt/bin/agent.sh start
+      args:
+        creates: /opt/buildAgent/logs/agent.log

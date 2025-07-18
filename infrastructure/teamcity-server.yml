@@ -1,0 +1,58 @@
+---
+- name: Install unzip
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install unzip package
+      ansible.builtin.apt:
+        name: unzip
+        state: present
+
+- name: Install TeamCity Server via Docker Compose
+  hosts:
+    - nexus-01
+  become: true
+  tasks:
+    - name: Install Docker & Docker Compose
+      apt:
+        name:
+          - docker.io
+          - docker-compose
+        state: present
+        update_cache: yes
+
+    - name: Ensure Docker daemon is running
+      service:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: Create destination directory if it does not exist
+      file:
+        path: /home/{{ ansible_user }}
+        state: directory
+        mode: '0755'
+
+    - name: Copy docker-compose.yml
+      copy:
+        src: /root/09-ci-05-teamcity/teamcity/docker-compose.yml
+        dest: /home/{{ ansible_user }}/docker-compose.yml
+        owner: "{{ ansible_user }}"
+        mode: '0644'
+
+    - name: Launch TeamCity via Docker Compose
+      community.docker.docker_compose:
+        project_src: /home/{{ ansible_user }}
+        state: present
+        restarted: true
+
+    - name: Wait for TeamCity to be reachable
+      wait_for:
+        host: "{{ ansible_host }}"
+        port: 8111
+        delay: 10
+        timeout: 300
+
+    - name: Debug TeamCity URL
+      debug:
+        msg: "TeamCity should be reachable at http://{{ ansible_host }}:8111"
