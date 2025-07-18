@@ -1,13 +1,9 @@
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+public class Welcomer {
+    public String getWelcomeMessage() {
+        return "Welcome to our application!";
+    }
 
-public class WelcomerTest {
-
-    @Test
-    public void testGetHunterMessage() {
-        Welcomer welcomer = new Welcomer();
-        String message = welcomer.getHunterMessage();
-        assertTrue(message.contains("hunter"), "Message should contain 'hunter'");
+    public String getHunterMessage() {
+        return "The hunter is on the prowl!";
     }
 }
-
