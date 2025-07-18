@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.2.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.2.0 http://maven.apache.org/xsd/settings-1.2.0.xsd">
+
+  <servers>
+    <server>
+      <id>nexus-releases</id>
+      <username>admin</username>
+      <password>admin123</password>
+    </server>
+    <server>
+      <id>nexus-snapshots</id>
+      <username>admin</username>
+      <password>admin123</password>
+    </server>
+  </servers>
+
+  <mirrors>
+    <mirror>
+      <id>nexus-releases</id>
+      <mirrorOf>nexus-releases</mirrorOf>
+      <url>http://5.129.192.8:8081/repository/maven-releases/</url>
+      <blocked>false</blocked>
+    </mirror>
+    <mirror>
+      <id>nexus-snapshots</id>
+      <mirrorOf>nexus-snapshots</mirrorOf>
+      <url>http://5.129.192.8:8081/repository/maven-snapshots/</url>
+      <blocked>false</blocked>
+    </mirror>
+  </mirrors>
+
+  <proxies>
+  </proxies>
+
+  <profiles>
+    <profile>
+      <id>nexus</id>
+      <repositories>
+        <repository>
+          <id>nexus-releases</id>
+          <url>http://5.129.192.8:8081/repository/maven-releases/</url>
+        </repository>
+        <repository>
+          <id>nexus-snapshots</id>
+          <url>http://5.129.192.8:8081/repository/maven-snapshots/</url>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>nexus-releases</id>
+          <url>http://5.129.192.8:8081/repository/maven-releases/</url>
+        </pluginRepository>
+        <pluginRepository>
+          <id>nexus-snapshots</id>
+          <url>http://5.129.192.8:8081/repository/maven-snapshots/</url>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
+
+  <activeProfiles>
+    <activeProfile>nexus</activeProfile>
+  </activeProfiles>
+
+</settings>
